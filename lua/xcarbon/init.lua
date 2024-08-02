@@ -12,12 +12,15 @@ vim.o["termguicolors"] = true
 
 local base00 = "#161616"
 local base06 = "#ffffff"
-local base09 = "#78a9ff"
+local base09 = "#aeaeae"
 
 local xcarbon = (
 	(
 		(vim.o.background == "dark")
 		and {
+			variable = "#ABC3CD",
+			borders = blend_hex(base00, base06, 0.3),
+			blend = "#131313",
 			base00 = base00,
 			base01 = blend_hex(base00, base06, 0.085),
 			base02 = blend_hex(base00, base06, 0.18),
@@ -25,19 +28,19 @@ local xcarbon = (
 			base04 = blend_hex(base00, base06, 0.82),
 			base05 = blend_hex(base00, base06, 0.95),
 			base06 = base06,
-			base07 = "#08bdba",
-			base08 = "#3ddbd9",
-			-- base08 = "#AEAEAE",
+			base07 = "#E1DCE0",
+			base08 = "#cccccc",
 			base09 = base09,
 			base10 = "#CCCCCC",
-			base11 = "#33b1ff",
+			base11 = "#AFADB0",
 			base12 = "#AEAEAE",
-			base13 = "#42be65",
+			base13 = "#767678",
 			base14 = "#aeaeae",
-			base15 = "#82cfff",
-			blend = "#131313",
+			base15 = "#E1DCE0",
+			base16 = "#202020",
 			none = "NONE",
-			test = "#ff0000",
+			error = "#E06C75",
+			warning = "#D19A66",
 		}
 	)
 	or {
@@ -89,7 +92,7 @@ api.nvim_set_hl(0, "CursorLine", { fg = xcarbon.none, bg = xcarbon.base01 })
 api.nvim_set_hl(0, "CursorColumn", { fg = xcarbon.none, bg = xcarbon.base01 })
 api.nvim_set_hl(0, "CursorLineNr", { fg = xcarbon.base04, bg = xcarbon.none })
 api.nvim_set_hl(0, "QuickFixLine", { fg = xcarbon.none, bg = xcarbon.base01 })
-api.nvim_set_hl(0, "Error", { fg = xcarbon.base10, bg = xcarbon.base01 })
+api.nvim_set_hl(0, "Error", { fg = xcarbon.error, bg = xcarbon.base01 })
 api.nvim_set_hl(0, "LineNr", { fg = xcarbon.base03, bg = xcarbon.base00 })
 api.nvim_set_hl(0, "NonText", { fg = xcarbon.base02, bg = xcarbon.none })
 api.nvim_set_hl(0, "Normal", { fg = xcarbon.base04, bg = xcarbon.base00 })
@@ -107,15 +110,15 @@ api.nvim_set_hl(0, "MatchParen", { fg = xcarbon.none, bg = xcarbon.base02, under
 api.nvim_set_hl(0, "Bold", { fg = xcarbon.none, bg = xcarbon.none, bold = true })
 api.nvim_set_hl(0, "Italic", { fg = xcarbon.none, bg = xcarbon.none, italic = true })
 api.nvim_set_hl(0, "Underlined", { fg = xcarbon.none, bg = xcarbon.none, underline = true })
-api.nvim_set_hl(0, "DiagnosticWarn", { fg = xcarbon.base14, bg = xcarbon.none })
-api.nvim_set_hl(0, "DiagnosticError", { fg = xcarbon.base10, bg = xcarbon.none })
+api.nvim_set_hl(0, "DiagnosticWarn", { fg = xcarbon.warning, bg = xcarbon.none })
+api.nvim_set_hl(0, "DiagnosticError", { fg = xcarbon.error, bg = xcarbon.none })
 api.nvim_set_hl(0, "DiagnosticInfo", { fg = xcarbon.base09, bg = xcarbon.none })
 api.nvim_set_hl(0, "DiagnosticHint", { fg = xcarbon.base04, bg = xcarbon.none })
 api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { fg = xcarbon.base14, bg = xcarbon.none, undercurl = true })
-api.nvim_set_hl(0, "DiagnosticUnderlineError", { fg = xcarbon.base10, bg = xcarbon.none, undercurl = true })
+api.nvim_set_hl(0, "DiagnosticUnderlineError", { fg = xcarbon.error, bg = xcarbon.none, undercurl = true })
 api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { fg = xcarbon.base04, bg = xcarbon.none, undercurl = true })
 api.nvim_set_hl(0, "DiagnosticUnderlineHint", { fg = xcarbon.base04, bg = xcarbon.none, undercurl = true })
-api.nvim_set_hl(0, "HealthError", { fg = xcarbon.base10, bg = xcarbon.none })
+api.nvim_set_hl(0, "HealthError", { fg = xcarbon.error, bg = xcarbon.none })
 api.nvim_set_hl(0, "HealthWarning", { fg = xcarbon.base14, bg = xcarbon.none })
 api.nvim_set_hl(0, "HealthSuccess", { fg = xcarbon.base13, bg = xcarbon.none })
 api.nvim_set_hl(0, "@comment", { link = "Comment" })
@@ -186,7 +189,7 @@ api.nvim_set_hl(0, "FoldColumn", { fg = xcarbon.base03, bg = xcarbon.base00 })
 api.nvim_set_hl(0, "SignColumn", { fg = xcarbon.base03, bg = xcarbon.base00 })
 api.nvim_set_hl(0, "Directory", { fg = xcarbon.base08, bg = xcarbon.none })
 api.nvim_set_hl(0, "EndOfBuffer", { fg = xcarbon.base01, bg = xcarbon.none })
-api.nvim_set_hl(0, "ErrorMsg", { fg = xcarbon.base10, bg = xcarbon.none })
+api.nvim_set_hl(0, "ErrorMsg", { fg = xcarbon.error, bg = xcarbon.none })
 api.nvim_set_hl(0, "ModeMsg", { fg = xcarbon.base04, bg = xcarbon.none })
 api.nvim_set_hl(0, "MoreMsg", { fg = xcarbon.base08, bg = xcarbon.none })
 api.nvim_set_hl(0, "Question", { fg = xcarbon.base04, bg = xcarbon.none })
@@ -291,7 +294,7 @@ api.nvim_set_hl(0, "@function.macro", { fg = xcarbon.base07, bg = xcarbon.none }
 api.nvim_set_hl(0, "@method", { fg = xcarbon.base07, bg = xcarbon.none })
 api.nvim_set_hl(0, "@constructor", { fg = xcarbon.base09, bg = xcarbon.none })
 api.nvim_set_hl(0, "@parameter", { fg = xcarbon.base04, bg = xcarbon.none })
-api.nvim_set_hl(0, "@keyword", { fg = xcarbon.base09, bg = xcarbon.none })
+api.nvim_set_hl(0, "@keyword", { fg = xcarbon.base08, bg = xcarbon.none, italic = true })
 api.nvim_set_hl(0, "@keyword.function", { fg = xcarbon.base08, bg = xcarbon.none })
 api.nvim_set_hl(0, "@keyword.operator", { fg = xcarbon.base08, bg = xcarbon.none })
 api.nvim_set_hl(0, "@conditional", { fg = xcarbon.base09, bg = xcarbon.none })
@@ -462,5 +465,58 @@ api.nvim_set_hl(0, "DapUIPlayPause", { fg = xcarbon.base09, bg = xcarbon.none })
 api.nvim_set_hl(0, "DapUIRestart", { fg = xcarbon.base09, bg = xcarbon.none })
 api.nvim_set_hl(0, "DapUIUnavailable", { fg = xcarbon.base09, bg = xcarbon.none })
 api.nvim_set_hl(0, "DapUIWinSelect", { fg = xcarbon.base09, bg = xcarbon.none })
+
+-- Neotree
+api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = xcarbon.base10, bg = xcarbon.none })
+api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = xcarbon.base10, bg = xcarbon.none })
+
+api.nvim_set_hl(0, "VertSplit", { fg = xcarbon.borders, bg = xcarbon.none })
+api.nvim_set_hl(0, "WinSeparator", { fg = xcarbon.borders, bg = xcarbon.none })
+
+vim.api.nvim_set_option("winblend", 10)
+vim.api.nvim_set_option("pumblend", 10)
+
+vim.cmd([[
+highlight NormalFloat guifg=#c2c2c2 guibg=#161616
+highlight FloatBorder guifg= xcarbon.base10 guibg= xcarbon.base13
+]])
+
+-- Custom highlights based on Telescope
+api.nvim_set_hl(0, "CmpBorder", { fg = "#88c0d0", bg = "#050505" })
+api.nvim_set_hl(0, "CmpPmenu", { fg = "#d8dee9", bg = "#050505" })
+
+api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#d8dee9", bg = "NONE" })
+api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = xcarbon.base13, bg = xcarbon.none })
+api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = xcarbon.base13, bg = xcarbon.none })
+api.nvim_set_hl(0, "CmpItemKind", { fg = "#61afef", bg = "NONE" })
+api.nvim_set_hl(0, "CmpItemMenu", { fg = "#d8dee9", bg = "NONE" })
+
+api.nvim_set_hl(0, "CmpItemKindInterface", { fg = xcarbon.base08, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = xcarbon.base08, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindText", { fg = xcarbon.base09, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindEnum", { fg = xcarbon.base09, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = xcarbon.base09, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindConstant", { fg = xcarbon.base10, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = xcarbon.base10, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindReference", { fg = xcarbon.base10, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindFunction", { fg = xcarbon.base11, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindStruct", { fg = xcarbon.base11, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindClass", { fg = xcarbon.base11, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindModule", { fg = xcarbon.base11, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindOperator", { fg = xcarbon.base11, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindField", { fg = xcarbon.base12, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindProperty", { fg = xcarbon.base12, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindEvent", { fg = xcarbon.base12, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindUnit", { fg = xcarbon.base13, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = xcarbon.base13, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindFolder", { fg = xcarbon.base13, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindVariable", { fg = xcarbon.base14, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindFile", { fg = xcarbon.base14, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindMethod", { fg = xcarbon.base15, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindValue", { fg = xcarbon.base15, bg = xcarbon.base00 })
+api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = xcarbon.base15, bg = xcarbon.base00 })
+
+api.nvim_set_hl(0, "CursorLineNr", { link = "LineNr" })
+vim.api.nvim_set_hl(0, "Keyword", { italic = true })
 
 return { xcarbon = xcarbon }
