@@ -10,6 +10,7 @@ A minimal neovim colorscheme!
 
 # Installation
 ## Lazy
+- lua
 ```lua
 {
   "horanmustaplot/xcarbon.nvim",
@@ -20,6 +21,7 @@ A minimal neovim colorscheme!
   end,
 }
 ```
+- fennel
 ``` fennel
 {1 :horanmustaplot/xcarbon.nvim
  :config (fn [] (vim.cmd "colorscheme xcarbon"))
