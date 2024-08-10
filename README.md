@@ -20,5 +20,11 @@ A minimal neovim colorscheme!
   end,
 }
 ```
+``` fennel
+{1 :horanmustaplot/xcarbon.nvim
+ :config (fn [] (vim.cmd "colorscheme xcarbon"))
+ :lazy false
+ :priority 1000}
+```
 
 # Still trying to make it better :)
